@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>calculator</title>
+	<style type="text/css">
+		.main{
+			border-radius: 10px;
+			background-color: red;
+			width: 250px;
+			height: 350px;
+			margin-left: 15px;
+			margin-top: 25px;
+			align-self: center;
+			padding: 2%;
+		}
+		#input-field{
+			border-radius: 5px;
+			background-color: lightcoral;
+			width: 240px;
+			height: 45px;
+			font-size: 30px;
+			margin-top: 5px;
+		}
+		#number-row1,#number-row2,#number-row3,#number-row4{
+			width: 550px;
+			height: 45px;
+			font-size: 40px;
+			padding: 5px;
+		}
+		#equal-div{
+			width: 550px;
+			height: 45px;
+			font-size: 40px;
+			margin-top: 5px;
+		}
+		button{
+			font-size: 20px;
+			height: 50px;
+			width: 50px;
+			border-radius: 5px;
+		}
+		button:hover{
+			background-color: lightgoldenrodyellow;
+			font-size: 25px;
+			height: 50px;
+			width: 50px;
+			border-radius: 5px;
+		}
+		#equal{
+			width: 240px;
+			height: 50px;
+			margin-top: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		function show(value) {
+			document.getElementById('input-field').value += value;
+		}
+		function clr(){
+			document.getElementById('input-field').value = "";
+		}
+		function cals(value){
+			document.getElementById('input-field').value += value;
+		}
+		function equal(value){
+			var value = document.getElementById('input-field').value;
+			var store = eval(value);
+			document.getElementById('input-field').value = store;
+		}
+	</script>
+</head>
+<body>
+	<div class="main">
+		<div id="input-div">
+			<input type="text" id="input-field" maxlength="7" name="input" placeholder="00" disabled/>
+		</div>
+		<div id="number-row1">
+			<button value="1" onclick="show('1')" id="b1">1</button>
+			<button value="2" onclick="show('2')" id="b2">2</button>
+			<button value="3" onclick="show('3')" id="b3">3</button>
+			<button value="+" onclick="cals('+')" id="add">+</button>
+		</div>
+		<div id="number-row2">
+			<button value="4" onclick="show('4')" id="b4">4</button>
+			<button value="5" id="b5" onclick="show('5')">5</button>
+			<button value="6" onclick="show('6')" id="b6">6</button>
+			<button value="-" onclick="cals('-')" id="sub">-</button>
+		</div>
+		<div id="number-row3">
+			<button value="7" onclick="show('7')" id="b7">7</button>
+			<button value="8" onclick="show('8')" id="b8">8</button>
+			<button value="9" onclick="show('9')" id="b9">9</button>
+			<button value="*" onclick="cals('*')" id="multi">*</button>
+		</div>
+		<div id="number-row4">
+			<button value="." onclick="show('.')" id="dot">.</button>
+			<button value="0" onclick="show('0')" id="b0">0</button>
+			<button onclick="clr()" id="clear">C</button>
+			<button value="/" onclick="cals('/')" id="divide">/</button>
+		</div>
+		<div id="equal-div">
+			<button value="=" onclick="equal('=')" id="equal">=</button>
+	</div>
+	</div>
+</body>
+</html>
